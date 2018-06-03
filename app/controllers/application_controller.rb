@@ -100,9 +100,8 @@ delete '/tweets/:id/delete' do
 end 
 
 patch '/tweets/:id' do
- 
+   @tweet = Tweet.find_by_id(params[:id])
     if  !params[:content].empty?
-      @tweet = Tweet.find_by_id(params[:id])
       @tweet.content = params[:content]
       @tweet.save 
     redirect "/tweets/#{@tweet.id}"
