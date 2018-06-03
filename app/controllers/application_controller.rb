@@ -100,19 +100,17 @@ delete '/tweets/:id/delete' do
 end 
 
 patch '/tweets/:id' do
-    @tweet= Tweet.find_by_id(params[:id])
-    if  @tweet.user_id == current_user.id && !params[:content].empty?
+ 
+    if  !params[:content].empty?
+      @tweet = Tweet.find_by_id(params[:id])
       @tweet.content = params[:content]
       @tweet.save 
     redirect "/tweets/#{@tweet.id}"
-  end 
-  elsif !logged_in?
-  redirect '/login'
-end 
 else 
     redirect "/tweets/#{@tweet.id}/edit"
  end
 end 
+
 
 
  
