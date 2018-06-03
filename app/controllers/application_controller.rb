@@ -100,7 +100,6 @@ delete '/tweets/:id/delete' do
 end 
 
 patch '/tweets/:id' do
-  if logged_in?
     @tweet= Tweet.find_by_id(params[:id])
     if  @tweet.user_id == current_user.id && !params[:content].empty?
       @tweet.content = params[:content]
