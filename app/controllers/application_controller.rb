@@ -111,9 +111,6 @@ else
 end 
 
 
-
- 
-
   #USERSCONTROLLER
   
   get '/signup' do
