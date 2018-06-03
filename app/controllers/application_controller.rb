@@ -108,6 +108,7 @@ patch '/tweets/:id' do
   end 
   elsif !logged_in?
   redirect '/login'
+end 
 else 
     redirect "/tweets/#{@tweet.id}/edit"
  end
